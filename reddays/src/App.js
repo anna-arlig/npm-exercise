@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import './App.css'
+import {timeHelper} from 'date-and-time-helpers-and'
 
 function App() {
 	const [startDate, setStartDate] = useState('2021-08-01');
@@ -9,6 +10,10 @@ function App() {
 		setStartDate(startDate)
 		setEndDate(endDate)
 	}
+
+	let monthToDisplay = timeHelper({startDate: "2021-08-01", endDate: "2021-08-31"})
+
+
 
 	return (
 		<div className="App">
@@ -22,7 +27,7 @@ function App() {
 					<input type="date" value={endDate} onChange={(e) => setEndDate(e.target.value)} />
 				</div>
 			</div>
-			{/*	Component goes here */}
+			 <h1>{monthToDisplay}</h1> 
 			<div className="tests">
 				<TestLink startDate="2021-08-01" endDate="2021-08-31" expected="August" onClick={handleTest} />
 				<TestLink startDate="2021-05-01" endDate="2021-05-31" expected="May" onClick={handleTest} />
